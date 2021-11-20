@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\Auth\LoginController;
+use App\Http\Controllers\Backend\Job\JobTypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,8 @@ Route ::view('admin/login', 'auth.admin.login')->name('admin.login');
 Route ::view('user/login', 'auth.user.login')->name('user.login');
 Route ::view('user/registration', 'auth.user.register')->name('user.registration');
 
+
+
 Route::post('admin/dashboard', [LoginController::class, 'login'])->name('admin.login.submit');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
+Route::resource('job-types',JobTypeController::class);
