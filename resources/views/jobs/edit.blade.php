@@ -1,16 +1,15 @@
-@extends('layouts.admin.master')
-@section('dashboard')
+@extends('adminPanel.app')
+@section('content')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Edit Car Type</h1>
+                    <h1 class="m-0">Edit Job</h1>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-@section('content')
+
     <section class="content">
         <div class="card">
             <div class="card-header">
@@ -29,32 +28,55 @@
                         </div>
                     @endif
                     <br>
-                    <form action="{{route('car-types.update',$data->id)}}" method="POST">
+                    <form action="{{route('jobs.update',$job->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" name="name"  value="{{$data->name}}"  class="form-control">
+                                        <input value="{{isset($job->title) ? $job->title : ''}}" type="text" name="title" class="form-control" required>
 
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="status">Status </label>
-                                        <select name="status" id=""   class="form-control">
-                                            <option value="" class="select">select an Option</option>
-                                            <option value="Active" @if($data->status == 'Active') selected @endif >Active </option>
-                                            <option value="Inactive" @if($data->status == 'Inactive') selected @endif >Inactive </option>
+                                        <label for="job_types_id">Job Type </label>
+                                        <select name="job_types_id" id="" class="form-control" required>
+                                            <option value="">Choose Any One</option>
+                                            @foreach($jobTypes as $jobType)
+                                                <option value="{{$jobType->id}}" @if($job->job_types_id == $jobType->id) selected @endif>{{$jobType->name}}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Description</label>
+                                        <textarea class="form-control"  name="description" id="exampleFormControlTextarea1" rows="3">{{isset($job->description)? $job->description :''}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlFile1">Thumbnail</label>
+                                                <input type="file" value="{{isset($job->thumbnail)? $job->thumbnail :''}}" name="thumbnail" class="form-control-file" id="exampleFormControlFile1">
+                                            </div>
+                                            <img src="{{(isset($job->thumbnail) && !empty($job->thumbnail))?asset('uploads/'. $job->thumbnail) : asset('uploads/images.png')}}" width="50%" height="50%" alt="">
+                                        </div>
+
+                                    </div>
 
                                 </div>
-                                <div class="col-md-4" style="margin-top: 32px">
-                                    <button type="submit" class="form-group form-control btn btn-info"> Submit</button>
-                                </div>
+
+                            </div>
+                            <div class="col-md-4" style="margin-top: 32px">
+                                <button type="submit" class="form-group form-control btn btn-info"> Submit</button>
                             </div>
 
                         </div>

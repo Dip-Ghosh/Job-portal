@@ -19,7 +19,7 @@ class LoginController extends Controller
      */
     public function login(AdminLoginValidationRequest $request){
 
-        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (!Auth::attempt(['email' => $request->email, 'password' => $request->password,'is_admin'=>1])) {
             return redirect()->back()->withErrors('Invalid Email or Password')->withInput();
         }
         return view('home');

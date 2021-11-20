@@ -20,8 +20,7 @@ class CreateJobsTable extends Migration
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('job_types_id');
             $table->foreign('job_types_id')->references('id')->on('job_types');
-            $table->enum('status',['Active', 'Inactive'])->default('Active');
-            $table->softDeletes();
+            $table->enum('status',['Active', 'Deactivate'])->default('Active');
             $table->timestamps();
         });
     }

@@ -15,5 +15,8 @@ class JobTypeRepository extends BaseRepository implements JobTypeInterface, Base
         parent::__construct($jobType);
         $this->jobType = $jobType;
     }
+    public function  getAllJobTypes(){
+        return $this->jobType->orderBy('id', 'desc')->get();
+    }
 
 }

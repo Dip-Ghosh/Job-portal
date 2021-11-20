@@ -10,6 +10,8 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    use ExceptionApiTrait;
+    use ExceptionTrait;
     /**
      * A list of the exception types that are not reported.
      *
@@ -44,22 +46,10 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $e)
     {
 
-//        if (\Request::wantsJson()) {
-//            $apiException = (new ApiExceptionMapper($e))->getApiException();
-//            return response()->json($apiException->getPayload(), $apiException->getStatusCode());
-//        }
-        if ($e instanceof ValidationException) {
-            if ($request->ajax()) {
-                return response()->json($e->validator->getMessageBag()->toArray());
-            }
-            return redirect()->back()->withErrors($e->validator->getMessageBag()->toArray())->withInput();
+        if ($request->expectsJson()) {
+            return $this->apiException($request,$e);
         }
-        if ($e instanceof TokenMismatchException){
-            return redirect("/")->withErrors('Security token wrong or expired.Please Login again.')->withInput();
-        }
-        if($e instanceof UnauthorizedException){
-            return redirect()->back()->withErrors('You are not authorized to access this page.')->withInput();
-        }
+       return $this->getException($request,$e);
 
     }
 }

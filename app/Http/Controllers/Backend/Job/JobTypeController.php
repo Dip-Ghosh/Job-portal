@@ -22,7 +22,7 @@ class JobTypeController extends Controller
      */
     public function create()
     {
-        $data = $this->jobType->all();
+        $data = $this->jobType->getAllJobTypes();
         return view('jobType.create',compact('data'));
     }
 

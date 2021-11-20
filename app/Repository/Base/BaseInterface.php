@@ -4,8 +4,6 @@ namespace App\Repository\Base;
 
 interface BaseInterface
 {
-    public function all();
-
     public function save(array $data);
 
     public function edit($id);

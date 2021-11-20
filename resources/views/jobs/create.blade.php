@@ -1,22 +1,22 @@
-@extends('layouts.admin.master')
-@section('dashboard')
+@extends('adminPanel.app')
+@section('content')
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Create Car Type</h1>
+                    <h1 class="m-0">Create Job</h1>
                 </div>
             </div>
         </div>
     </div>
-@endsection
-@section('content')
+
     <section class="content">
         <div class="card">
             <div class="card-header">
                 <div class="card text-white" style="background-color: #183757;">
                     @if ($errors->any())
-                        <div class="alert alert-dismissible fade show" style="color: black; background-color: #d4edda" role="alert">
+                        <div class="alert alert-dismissible fade show" style="color: black; background-color: #d4edda"
+                             role="alert">
                             <strong>Whoops!</strong> There were some problems with your input.<br><br>
                             <ul>
                                 @foreach ($errors->all() as $error)
@@ -28,32 +28,55 @@
                             </button>
                         </div>
                     @endif
-                        <br>
-                    <form action="{{route('car-types.store')}}" method="POST">
+                    <br>
+                    <form action="{{route('jobs.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name"   class="form-control">
+                                        <label for="name">Title</label>
+                                        <input type="text" name="title" class="form-control" required>
 
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="status">Status </label>
-                                        <select name="status" id=""   class="form-control">
-                                            <option value="" class="select">select an Option</option>
-                                            <option value="Active" >Active </option>
-                                            <option value="Inactive">Inactive </option>
+                                        <label for="job_types_id">Job Type </label>
+                                        <select name="job_types_id" id="" class="form-control" required>
+                                            <option value="">Choose Any One</option>
+                                            @foreach($jobTypes as $jobType)
+                                                <option value="{{$jobType->id}}">{{$jobType->name}}</option>
+                                            @endforeach
+
                                         </select>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">Description</label>
+                                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlFile1">Thumbnail</label>
+                                                <input type="file" name="thumbnail" class="form-control-file" id="exampleFormControlFile1">
+                                            </div>
+
+                                        </div>
+
+                                    </div>
 
                                 </div>
-                                <div class="col-md-4" style="margin-top: 32px">
-                                    <button type="submit" class="form-group form-control btn btn-info"> Submit</button>
-                                </div>
+
+                            </div>
+                            <div class="col-md-4" style="margin-top: 32px">
+                                <button type="submit" class="form-group form-control btn btn-info"> Submit</button>
                             </div>
 
                         </div>
@@ -64,5 +87,6 @@
 
         </div>
     </section>
+
 
 @endsection
