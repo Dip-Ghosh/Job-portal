@@ -17,9 +17,9 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name', 200)->nullable();
             $table->unsignedBigInteger('organizations_id');
-            $table->foreign('id')->references('organizations_id')->on('organizations');
+            $table->foreign('organizations_id')->references('id')->on('organizations');
             $table->unsignedBigInteger('industries_id');
-            $table->foreign('id')->references('industries_id')->on('industries');
+            $table->foreign('industries_id')->references('id')->on('industries');
             $table->longText('address')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email')->nullable();

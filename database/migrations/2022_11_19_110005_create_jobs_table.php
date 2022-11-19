@@ -19,8 +19,7 @@ class CreateJobsTable extends Migration
             $table->foreign('job_title_id')->references('id')->on('job_titles');
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
-            $table->unsignedBigInteger('job_types_id');
-            $table->foreign('job_types_id')->references('id')->on('job_types');
+            $table->text('salary')->nullable();
             $table->enum('status', [1, 0])->default(1);
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class CreateJobDescriptionsTable extends Migration
         Schema::create('job_descriptions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('jobs_id');
-            $table->foreign('id')->references('id')->on('jobs');
+            $table->foreign('jobs_id')->references('id')->on('jobs');
             $table->longText('job_responsibilities')->nullable();
             $table->longText('educational_requirements')->nullable();
             $table->longText('additional_requirements')->nullable();
