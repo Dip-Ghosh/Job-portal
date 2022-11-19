@@ -15,9 +15,12 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('description')->nullable();
-            $table->string('thumbnail')->nullable();
+            $table->unsignedBigInteger('job_title_id');
+            $table->foreign('job_title_id')->references('id')->on('job_titles');
+            $table->unsignedBigInteger('job_description');
+            $table->foreign('job_description')->references('id')->on('job_descriptions');
+            $table->unsignedBigInteger('company_id');
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->unsignedBigInteger('job_types_id');
             $table->foreign('job_types_id')->references('id')->on('job_types');
             $table->enum('status', [1, 0])->default(1);

@@ -17,7 +17,9 @@ class CreateJobDescriptionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('jobs_id');
             $table->foreign('id')->references('id')->on('jobs');
-            $table->longText('descriptions')->nullable();
+            $table->longText('job_responsibilities')->nullable();
+            $table->longText('educational_requirements')->nullable();
+            $table->longText('additional_requirements')->nullable();
             $table->enum('status', [1, 0])->default(1);
             $table->timestamps();
         });
