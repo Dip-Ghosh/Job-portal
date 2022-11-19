@@ -17,8 +17,6 @@ class CreateJobsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('job_title_id');
             $table->foreign('job_title_id')->references('id')->on('job_titles');
-            $table->unsignedBigInteger('job_description');
-            $table->foreign('job_description')->references('id')->on('job_descriptions');
             $table->unsignedBigInteger('company_id');
             $table->foreign('company_id')->references('id')->on('companies');
             $table->unsignedBigInteger('job_types_id');
