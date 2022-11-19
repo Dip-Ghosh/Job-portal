@@ -2,11 +2,9 @@
 
 namespace App\Repository\Base;
 
-interface BaseInterface
+interface WriteAbleInterface
 {
     public function save(array $data);
-
-    public function edit($id);
 
     public function update(array $data, $id);
 

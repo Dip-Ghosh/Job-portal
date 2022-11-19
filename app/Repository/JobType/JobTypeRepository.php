@@ -3,10 +3,13 @@
 namespace App\Repository\JobType;
 
 use App\Models\JobType;
-use App\Repository\Base\BaseInterface;
 use App\Repository\Base\BaseRepository;
+use App\Repository\Base\ReadAbleInterface;
+use App\Repository\Base\WriteAbleInterface;
 
-class JobTypeRepository extends BaseRepository implements JobTypeInterface, BaseInterface
+//use App\Repository\Base\BaseRepository;
+
+class JobTypeRepository extends BaseRepository implements JobTypeInterface, WriteAbleInterface, ReadAbleInterface
 {
     protected $jobType;
 
@@ -14,9 +17,6 @@ class JobTypeRepository extends BaseRepository implements JobTypeInterface, Base
     {
         parent::__construct($jobType);
         $this->jobType = $jobType;
-    }
-    public function  getAllJobTypes(){
-        return $this->jobType->orderBy('id', 'desc')->get();
     }
 
 }

@@ -4,7 +4,7 @@ namespace App\Repository\Base;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BaseRepository implements BaseInterface
+class BaseRepository implements WriteAbleInterface, ReadAbleInterface
 {
     protected $model;
 
@@ -13,23 +13,34 @@ class BaseRepository implements BaseInterface
         $this->model = $model;
     }
 
+    public function getAll()
+    {
+        return $this->model::orderBy('id', 'desc')->get();
+    }
+
     public function save(array $data)
     {
         return $this->model::create($data);
     }
 
-    public function edit($id)
+    public function getOne($id)
     {
-        return $this->model::where('id',$id)->first();
+        return $this->getId($id);
+    }
+
+    private function getId($id)
+    {
+        return $this->model->find($id);
     }
 
     public function update(array $data, $id)
     {
-        return $this->model::where('id',$id)->update($data);
+        return $this->getId($id)->update($data);
     }
 
     public function delete($id)
     {
-        return  $this->model::find($id)->delete();
+        return $this->getId($id)->delete();
     }
+
 }

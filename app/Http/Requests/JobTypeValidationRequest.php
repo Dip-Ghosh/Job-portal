@@ -6,20 +6,17 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class JobTypeValidationRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         return true;
     }
 
-    public function rules(){
+    public function rules()
+    {
 
         return [
-            'name'=>'required'
+            'name' => 'required'
         ];
     }
 
@@ -27,7 +24,6 @@ class JobTypeValidationRequest extends FormRequest
     {
         return [
             'name.required' => 'Job Type is required'
-
         ];
     }
 }

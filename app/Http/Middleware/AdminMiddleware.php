@@ -17,7 +17,7 @@ class AdminMiddleware
     /**
      * Create a new filter instance.
      *
-     * @param  Guard  $auth
+     * @param Guard $auth
      * @return void
      */
     public function __construct(Guard $auth)
@@ -28,12 +28,13 @@ class AdminMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param Request $request
+     * @param Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
+        dd($request);
         if ($this->auth->getUser()->type !== "admin") {
             abort(403, 'Unauthorized action.');
         }

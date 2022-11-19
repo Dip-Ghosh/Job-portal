@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Repository\Base\BaseRepository;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -14,8 +15,12 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'App\Repository\Base\BaseInterface',
-            'App\Repository\Base\BaseRepository'
+            'App\Repository\Base\WriteAbleInterface',
+            BaseRepository::class
+        );
+        $this->app->bind(
+            'App\Repository\Base\ReadAbleInterface',
+            BaseRepository::class
         );
 
         $this->app->bind(

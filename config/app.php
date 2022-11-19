@@ -1,5 +1,8 @@
 <?php
 
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Barryvdh\Debugbar\ServiceProvider;
+
 return [
 
     /*
@@ -39,7 +42,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    'debug' => (bool)env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------

@@ -3,12 +3,12 @@
 namespace App\Repository\Job;
 
 use App\Models\Job;
-use App\Repository\Base\BaseInterface;
 use App\Repository\Base\BaseRepository;
+use App\Repository\Base\WriteAbleInterface;
 use Illuminate\Support\Facades\DB;
 
 
-class JobRepository extends BaseRepository implements JobInterface, BaseInterface
+class JobRepository extends BaseRepository implements JobInterface, WriteAbleInterface
 {
     protected $job;
 
