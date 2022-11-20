@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Backend\Job;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\JobTypeValidationRequest;
-use App\Repository\JobType\JobTypeInterface;
+use App\Repository\JobType\OrganizationInterface;
 
 class JobTypeController extends Controller
 {
     protected $jobType;
 
-    public function __construct(JobTypeInterface $jobType)
+    public function __construct(OrganizationInterface $jobType)
     {
         $this->jobType = $jobType;
     }

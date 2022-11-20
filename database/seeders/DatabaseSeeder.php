@@ -9,6 +9,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([UserTableSeeder::class]);
-        $this->command->info('User table seeded!');
+        $this->call([OrganizationSeeder::class]);
     }
 }

@@ -15,7 +15,7 @@ class BaseRepository implements WriteAbleInterface, ReadAbleInterface
 
     public function getAll()
     {
-        return $this->model::orderBy('id', 'desc')->get();
+        return $this->model::active()->orders()->get();
     }
 
     public function save(array $data)

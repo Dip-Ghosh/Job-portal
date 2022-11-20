@@ -3,83 +3,58 @@
 namespace App\Http\Controllers;
 
 use App\Models\Organization;
+use App\Repository\Organization\OrganizationInterface;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $organizationRepository;
+
+    public function __construct(OrganizationInterface $organizationRepository)
     {
-        //
+        $this->organizationRepository = $organizationRepository;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function index()
+    {
+        $organizations = $this->organizationRepository->getAll();
+        return view('organization.list', compact('organizations'));
+    }
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Organization  $organization
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Organization $organization)
+
+    public function show($id)
     {
-        //
+        $this->organizationRepository->delete($id);
+        return redirect()->back()->with('success', 'Organization Deleted Successfully');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Organization  $organization
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Organization $organization)
+
+    public function edit($id)
     {
-        //
+        $this->organizationRepository->delete($id);
+        return redirect()->back()->with('success', 'Organization Deleted Successfully');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Organization  $organization
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Organization $organization)
     {
-        //
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Organization  $organization
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Organization $organization)
+    public function destroy($id)
     {
-        //
+        $this->organizationRepository->delete($id);
+        return redirect()->back()->with('success', 'Organization Deleted Successfully');
     }
 }

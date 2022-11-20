@@ -7,9 +7,14 @@ use App\Http\Requests\JobValidationRequest;
 use App\Models\cr;
 use App\Repository\Job\JobInterface;
 use App\Repository\JobApplication\JobApplicationInterface;
-use App\Repository\JobType\JobTypeInterface;
-use App\Service\JobService;
+use App\Repository\JobType\OrganizationInterface;
+use App\Service\OrganizationService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class JobController extends Controller
 {
@@ -18,7 +23,7 @@ class JobController extends Controller
     protected $jobService;
     protected $jobApplication;
 
-    public function __construct(JobTypeInterface $jobType,JobInterface $job,JobService $jobService,JobApplicationInterface $jobApplication)
+    public function __construct(OrganizationInterface $jobType, JobInterface $job, OrganizationService $jobService, JobApplicationInterface $jobApplication)
     {
         $this->jobType = $jobType;
         $this->job = $job;
@@ -29,18 +34,18 @@ class JobController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function index()
     {
         $jobs = $this->job->getAllActiveJobs();
-        return view('jobs.list',compact('jobs'));
+        return view('jobs.list', compact('jobs'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|Factory|View|Response
      */
     public function create()
     {
@@ -51,8 +56,8 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(JobValidationRequest $request)
     {
@@ -64,8 +69,8 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\cr  $cr
-     * @return \Illuminate\Http\Response
+     * @param cr $cr
+     * @return Response
      */
     public function show($id)
     {
@@ -76,34 +81,34 @@ class JobController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\cr  $cr
-     * @return \Illuminate\Http\Response
+     * @param cr $cr
+     * @return Response
      */
     public function edit($id)
     {
         $job = $this->job->edit($id);
         $jobTypes = $this->jobType->getAllJobTypes();
-        return view('jobs.edit', compact('job','jobTypes'));
+        return view('jobs.edit', compact('job', 'jobTypes'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\cr  $cr
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @param cr $cr
+     * @return RedirectResponse
      */
     public function update(JobValidationRequest $request, $id)
     {
-        $this->jobService->prepareUpdateData($request->all(),$id);
+        $this->jobService->prepareUpdateData($request->all(), $id);
         return redirect()->route('jobs.index')->with('success', 'Job Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cr  $cr
-     * @return \Illuminate\Http\RedirectResponse
+     * @param cr $cr
+     * @return RedirectResponse
      */
     public function destroy($id)
     {
@@ -113,7 +118,7 @@ class JobController extends Controller
 
     /**
      * @param $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function getApplicantDetails($id)
     {
