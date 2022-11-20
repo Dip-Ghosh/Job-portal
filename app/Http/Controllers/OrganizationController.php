@@ -23,7 +23,7 @@ class OrganizationController extends Controller
 
     public function create()
     {
-        //
+        return view('organization.create');
     }
 
 
@@ -33,16 +33,9 @@ class OrganizationController extends Controller
     }
 
 
-    public function show($id)
-    {
-        $this->organizationRepository->delete($id);
-        return redirect()->back()->with('success', 'Organization Deleted Successfully');
-    }
-
-
     public function edit($id)
     {
-        $this->organizationRepository->delete($id);
+        $this->organizationRepository->getOne($id);
         return redirect()->back()->with('success', 'Organization Deleted Successfully');
     }
 
