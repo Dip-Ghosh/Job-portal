@@ -2,55 +2,65 @@
 
 namespace App\Service;
 
-use App\Repository\Job\JobInterface;
-use Illuminate\Support\Facades\File;
+use App\Repository\Organization\OrganizationInterface;
 
 class OrganizationService
 {
+    protected $organization;
 
-    protected $job;
-
-    public function __construct(JobInterface $job)
+    public function __construct(OrganizationInterface $organization)
     {
-        $this->job = $job;
+        $this->organization = $organization;
     }
 
-    public function prepareData($query)
+    public function requestParams($requestParams)
     {
-
-        return $this->job->save($this->getJobData($query));
-    }
-
-    private function getJobData($data)
-    {
-        if (!empty($data['thumbnail'])) {
-            $image = $data['thumbnail'];
-            $imageName = time() . mt_rand() . "_" . $image->getClientOriginalName();
-            $image->move(public_path('uploads'), $imageName);
-        }
-        $requestParam = [
-            "title" => $data['title'],
-            "job_types_id" => $data['job_types_id'],
-            "description" => $data['description'],
-            "thumbnail" => isset($imageName) ? $imageName : null,
+        $params = [
+            'organization_type' => $requestParams['name'],
+            'status' => 1
         ];
-        return $requestParam;
+        return $this->organization->save($params);
     }
 
-    public function prepareUpdateData($request, $id)
+    public function requestUpdateParams($requestParams, $id)
     {
-
-        $this->isThumbnailPreset($id);
-        $requestParam = $this->getJobData($request);
-        return $this->job->update($requestParam, $id);
+        $params = [
+            'organization_type' => $requestParams['name'],
+            'status' => 1
+        ];
+        return $this->organization->update($params, $id);
     }
 
-    private function isThumbnailPreset($id)
-    {
-        $data = $this->job->checkThumbnail($id);
-        if (!empty($data->thumbnail)) {
-            $filename = public_path() . '/upload/' . $data->thumbnail;
-            File::delete($filename);
-        }
-    }
+//    private function getJobData($data)
+//    {
+//        if (!empty($data['thumbnail'])) {
+//            $image = $data['thumbnail'];
+//            $imageName = time() . mt_rand() . "_" . $image->getClientOriginalName();
+//            $image->move(public_path('uploads'), $imageName);
+//        }
+//        $requestParam = [
+//            "title" => $data['title'],
+//            "job_types_id" => $data['job_types_id'],
+//            "description" => $data['description'],
+//            "thumbnail" => isset($imageName) ? $imageName : null,
+//        ];
+//        return $requestParam;
+//    }
+//
+//    public function prepareUpdateData($request, $id)
+//    {
+//
+//        $this->isThumbnailPreset($id);
+//        $requestParam = $this->getJobData($request);
+//        return $this->job->update($requestParam, $id);
+//    }
+//
+//    private function isThumbnailPreset($id)
+//    {
+//        $data = $this->job->checkThumbnail($id);
+//        if (!empty($data->thumbnail)) {
+//            $filename = public_path() . '/upload/' . $data->thumbnail;
+//            File::delete($filename);
+//        }
+//    }
 }

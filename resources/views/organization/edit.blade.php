@@ -4,7 +4,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Edit Job Type</h1>
+                    <h1 class="m-0">Edit Organization</h1>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                         </div>
                     @endif
                     <br>
-                    <form action="{{route('job-types.update',$data->id)}}" method="POST">
+                    <form action="{{ route('organizations.update',$organization->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="card-body">
@@ -36,18 +36,14 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" name="name" value="{{$data->name}}" class="form-control">
+                                        <input type="text" name="name" value="{{ $organization->organization_type }}"
+                                               class="form-control">
 
                                     </div>
                                 </div>
-
                                 <div class="col-md-4" style="margin-top: 31px;">
                                     <button type="submit" class="form-group form-control btn btn-info"> Submit</button>
                                 </div>
-
-                            </div>
-                            <div class="row">
-
                             </div>
 
                         </div>
