@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Job\JobController;
+use App\Http\Controllers\Backend\Settings\IndustryController;
 use App\Http\Controllers\Backend\Settings\OrganizationController;
-use App\Http\Controllers\IndustryController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
