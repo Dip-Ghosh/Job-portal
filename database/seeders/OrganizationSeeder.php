@@ -7,13 +7,9 @@ use Illuminate\Database\Seeder;
 
 class OrganizationSeeder extends Seeder
 {
-    private $orgs = ["PRIVATE", "GOVT", "SEMI-GOVT", "NGO", "MULTI-NATIONAL"];
 
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    private $orgs = ["PRIVATE", "GOVT", "SEMI-GOVT", "MULTI-NATIONAL"];
+
     public function run()
     {
         foreach ($this->orgs as $org) {
