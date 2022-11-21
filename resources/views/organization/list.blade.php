@@ -31,13 +31,13 @@
                     @foreach ($organizations as $organization)
                         <tr>
                             <td>{{ ++$i }}</td>
-                            <td>{{$organization->organization_type}}</td>
+                            <td>{{ $organization->organization_type }}</td>
                             <td>
-                                <form action="{{ route('organizations.destroy',$organization->id)}}" method="POST">
+                                <form action="{{ route('organizations.destroy',$organization->id) }}" method="POST">
                                     @CSRF
                                     @method('DELETE')
 
-                                    <a href="{{route('organizations.edit',$organization->id)}}"
+                                    <a href="{{ route('organizations.edit',$organization->id) }}"
                                        class="btn btn-sm btn-success"><i
                                             class="fas fa-edit"></i></a>
 

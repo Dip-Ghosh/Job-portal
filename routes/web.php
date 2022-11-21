@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Job\JobController;
-use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\Backend\Settings\OrganizationController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
