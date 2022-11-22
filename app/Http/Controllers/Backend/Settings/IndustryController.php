@@ -19,31 +19,31 @@ class IndustryController extends Controller
 
     public function index()
     {
-        $organizations = $this->industryRepository->getAll();
-        return view('organization.list', compact('organizations'));
+        $industries = $this->industryRepository->getAll();
+        return view('industry.list', compact('industries'));
     }
 
     public function create()
     {
-        return view('organization.create');
+        return view('industry.create');
     }
 
     public function store(OrganizationFormRequest $request)
     {
         $this->industryService->requestParams($request->except('_token'));
-        return redirect()->route('organizations.index')->with('success', 'Organization Created Successfully');
+        return redirect()->route('industries.index')->with('success', 'Organization Created Successfully');
     }
 
     public function edit($id)
     {
         $organization = $this->industryRepository->getOne($id);
-        return view('organization.edit', compact('organization'));
+        return view('industry.edit', compact('organization'));
     }
 
     public function update(OrganizationFormRequest $request, $id)
     {
         $this->industryService->requestUpdateParams($request->except('_token'), $id);
-        return redirect()->route('organizations.index')->with('success', 'Organization Updated Successfully');
+        return redirect()->route('industries.index')->with('success', 'Organization Updated Successfully');
     }
 
     public function destroy($id)
