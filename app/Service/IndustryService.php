@@ -2,33 +2,33 @@
 
 namespace App\Service;
 
-use App\Repository\Organization\OrganizationInterface;
+use App\Repository\Industry\IndustryInterface;
 
 class IndustryService
 {
-    protected $organization;
+    protected $industry;
 
-    public function __construct(OrganizationInterface $organization)
+    public function __construct(IndustryInterface $industry)
     {
-        $this->organization = $organization;
+        $this->industry = $industry;
     }
 
     public function requestParams($requestParams)
     {
         $params = [
-            'organization_type' => $requestParams['name'],
+            'industry_type' => $requestParams['name'],
             'status' => 1
         ];
-        return $this->organization->save($params);
+        return $this->industry->save($params);
     }
 
     public function requestUpdateParams($requestParams, $id)
     {
         $params = [
-            'organization_type' => $requestParams['name'],
+            'industry_type' => $requestParams['name'],
             'status' => 1
         ];
-        return $this->organization->update($params, $id);
+        return $this->industry->update($params, $id);
     }
 
 }
