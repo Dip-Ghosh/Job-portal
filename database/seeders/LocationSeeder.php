@@ -21,7 +21,7 @@ class LocationSeeder extends Seeder
         ];
 
         foreach ($locations as $location) {
-            Location::create(['industry_type' => $location]);
+            Location::create(['city_name' => $location]);
             $this->command->info($location . " has created successfully");
         }
     }
