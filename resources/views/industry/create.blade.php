@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Organization Type</label>
+                                        <label for="name">Industry Type</label>
                                         <input type="text" name="name" class="form-control" required>
                                     </div>
                                 </div>
@@ -50,10 +50,6 @@
                                 </div>
 
                             </div>
-                            <div class="row">
-
-                            </div>
-
                         </div>
                     </form>
 
