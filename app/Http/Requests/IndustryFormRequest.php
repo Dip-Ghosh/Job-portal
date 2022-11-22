@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class JobTypeValidationRequest extends FormRequest
+class IndustryFormRequest extends FormRequest
 {
-
     public function authorize()
     {
         return true;
@@ -23,7 +22,7 @@ class JobTypeValidationRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Job Type is required'
+            'name.required' => 'Industry Type is required'
         ];
     }
 }

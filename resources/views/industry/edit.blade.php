@@ -28,7 +28,7 @@
                         </div>
                     @endif
                     <br>
-                    <form action="{{ route('organizations.update',$organization->id) }}" method="POST">
+                    <form action="{{ route('industries.update',$industry->id) }}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="card-body">
@@ -36,9 +36,8 @@
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" name="name" value="{{ $organization->organization_type }}"
+                                        <input type="text" name="name" value="{{ $industry->industry_type }}"
                                                class="form-control">
-
                                     </div>
                                 </div>
                                 <div class="col-md-4" style="margin-top: 31px;">
