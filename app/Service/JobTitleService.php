@@ -16,7 +16,7 @@ class JobTitleService
     public function requestParams($requestParams)
     {
         $params = [
-            'title' => $requestParams['title'],
+            'title' => $requestParams['jobTitle'],
             'status' => 1
         ];
         return $this->jobTitle->save($params);
@@ -25,7 +25,7 @@ class JobTitleService
     public function requestUpdateParams($requestParams, $id)
     {
         $params = [
-            'title' => $requestParams['title'],
+            'title' => $requestParams['jobTitle'],
             'status' => 1
         ];
         return $this->jobTitle->update($params, $id);
