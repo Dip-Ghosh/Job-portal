@@ -20,7 +20,7 @@ class JobTitleController extends Controller
 
     public function index()
     {
-        $jobsTitle = $this->jobTitle->getAll();
+        $jobsTitle = $this->jobTitleService->makePaginate(collect($this->jobTitle->getAll()));
         return view('job-title.list', compact('jobsTitle'));
     }
 
