@@ -27,8 +27,8 @@
         </a>
         <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('jobs.index')}}">List</a>
-                <a class="collapse-item" href="{{route('jobs.create')}}">Create</a>
+                <a class="collapse-item" href="{{ route('jobs.index') }}">List</a>
+                <a class="collapse-item" href="{{ route('jobs.create') }}">Create</a>
             </div>
 
         </div>
@@ -43,8 +43,8 @@
         </a>
         <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('organizations.index')}}">List</a>
-                <a class="collapse-item" href="{{route('organizations.create')}}">Create</a>
+                <a class="collapse-item" href="{{ route('organizations.index') }}">List</a>
+                <a class="collapse-item" href="{{ route('organizations.create') }}">Create</a>
             </div>
 
         </div>
@@ -60,8 +60,8 @@
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('industries.index')}}">List</a>
-                <a class="collapse-item" href="{{route('industries.create')}}">Create</a>
+                <a class="collapse-item" href="{{ route('industries.index') }}">List</a>
+                <a class="collapse-item" href="{{ route('industries.create') }}">Create</a>
             </div>
 
         </div>
@@ -77,13 +77,31 @@
         </a>
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('locations.index')}}">List</a>
-                <a class="collapse-item" href="{{route('locations.create')}}">Create</a>
+                <a class="collapse-item" href="{{ route('locations.index') }}">List</a>
+                <a class="collapse-item" href="{{ route('locations.create') }}">Create</a>
             </div>
 
         </div>
     </li>
     <!-- locations end -->
+
+
+    <!-- job Title start -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Job Title</span>
+        </a>
+        <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{{ route('jobs-title.index') }}">List</a>
+                <a class="collapse-item" href="{{ route('jobs-title.create') }}">Create</a>
+            </div>
+
+        </div>
+    </li>
+    <!-- job Title end -->
 
 
     <!-- Divider -->

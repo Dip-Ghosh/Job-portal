@@ -7,15 +7,13 @@ use Illuminate\Database\Seeder;
 
 class OrganizationSeeder extends Seeder
 {
-
-    private $orgs = ["PRIVATE", "GOVT", "SEMI-GOVT", "MULTI-NATIONAL"];
-
     public function run()
     {
-        foreach ($this->orgs as $org) {
-            Organization::create(['organization_type' => $org]);
-            $this->command->info($org . " has created successfully");
-        }
+        $organizationTypes = ["PRIVATE", "GOVT", "SEMI-GOVT", "MULTI-NATIONAL"];
 
+        foreach ($organizationTypes as $organizationType) {
+            Organization::create(['organization_type' => $organizationType]);
+        }
+        $this->command->info("Organization created successfully");
     }
 }

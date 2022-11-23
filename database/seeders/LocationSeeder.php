@@ -7,7 +7,6 @@ use Illuminate\Database\Seeder;
 
 class LocationSeeder extends Seeder
 {
-
     public function run()
     {
         $locations = [
@@ -22,7 +21,8 @@ class LocationSeeder extends Seeder
 
         foreach ($locations as $location) {
             Location::create(['city_name' => $location]);
-            $this->command->info($location . " has created successfully");
         }
+
+        $this->command->info("Location created successfully");
     }
 }
