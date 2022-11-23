@@ -19,6 +19,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind('App\Repository\Organization\OrganizationInterface', 'App\Repository\Organization\OrganizationRepository');
         $this->app->bind('App\Repository\Industry\IndustryInterface', 'App\Repository\Industry\IndustryRepository');
+        $this->app->bind('App\Repository\Location\LocationInterface', 'App\Repository\Location\LocationRepository');
 
         $this->app->bind('App\Repository\Job\JobInterface', 'App\Repository\Job\JobRepository');
         $this->app->bind('App\Repository\Api\LoginRegistrationInterface', 'App\Repository\Api\LoginRegistrationRepository');

@@ -33,7 +33,7 @@
                             <td>{{ ++$i }}</td>
                             <td>{{ $location->city_name }}</td>
                             <td>
-                                <form action="{{ route('industries.destroy', $location->id) }}" method="POST">
+                                <form action="{{ route('locations.destroy', $location->id) }}" method="POST">
                                     @CSRF
                                     @method('DELETE')
 
