@@ -3,6 +3,9 @@
 namespace App\Service;
 
 use App\Repository\JobTitle\JobTitleInterface;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 class JobTitleService
 {
@@ -29,6 +32,13 @@ class JobTitleService
             'status' => 1
         ];
         return $this->jobTitle->update($params, $id);
+    }
+
+    public function makePaginate($items, $perPage = 1005, $page = null, $options = [])
+    {
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
 
 }
