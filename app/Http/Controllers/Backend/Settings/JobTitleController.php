@@ -37,8 +37,8 @@ class JobTitleController extends Controller
 
     public function edit($id)
     {
-        $industry = $this->jobTitle->getOne($id);
-        return view('job-title.edit', compact('industry'));
+        $jobTitle = $this->jobTitle->getOne($id);
+        return view('job-title.edit', compact('jobTitle'));
     }
 
     public function update(JobTitleFormRequest $request, $id)
