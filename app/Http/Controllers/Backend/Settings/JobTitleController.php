@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\JobTitleFormRequest;
 use App\Repository\JobTitle\JobTitleInterface;
 use App\Service\JobTitleService;
 
@@ -19,31 +20,31 @@ class JobTitleController extends Controller
 
     public function index()
     {
-        $jobTitles = $this->jobTitle->getAll();
-        return view('industry.list', compact('jobTitles'));
+        $jobsTitle = $this->jobTitle->getAll();
+        return view('job-title.list', compact('jobsTitle'));
     }
 
     public function create()
     {
-        return view('industry.create');
+        return view('job-title.create');
     }
 
-    public function store(IndustryFormRequest $request)
+    public function store(JobTitleFormRequest $request)
     {
         $this->jobTitleService->requestParams($request->except('_token'));
-        return redirect()->route('industries.index')->with('success', 'Job Title Created Successfully');
+        return redirect()->route('jobs-title.index')->with('success', 'Job Title Created Successfully');
     }
 
     public function edit($id)
     {
         $industry = $this->jobTitle->getOne($id);
-        return view('industry.edit', compact('industry'));
+        return view('job-title.edit', compact('industry'));
     }
 
-    public function update(IndustryFormRequest $request, $id)
+    public function update(JobTitleFormRequest $request, $id)
     {
         $this->jobTitleService->requestUpdateParams($request->except('_token'), $id);
-        return redirect()->route('industries.index')->with('success', 'Job Title Updated Successfully');
+        return redirect()->route('jobs-title.index')->with('success', 'Job Title Updated Successfully');
     }
 
     public function destroy($id)
