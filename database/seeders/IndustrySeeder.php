@@ -7,17 +7,15 @@ use Illuminate\Database\Seeder;
 
 class IndustrySeeder extends Seeder
 {
-    private $industries = [
-        "IT", "Accounts", "Marketing", "Sales", "Banking", "NGO", "Production", "HRM", "Medical", "Design",
-        "Data Entry", "Garments/Textile", "Beauty Care", "Research / Consultancy", "Agro"
-    ];
-
     public function run()
     {
-        foreach ($this->industries as $industries) {
-            Industry::create(['industry_type' => $industries]);
-            $this->command->info($industries . " has created successfully");
+        $industryTypes = [
+            "IT", "Accounts", "Marketing", "Sales", "Banking", "NGO", "Production", "HRM", "Medical", "Design",
+            "Data Entry", "Garments/Textile", "Beauty Care", "Research / Consultancy", "Agro"
+        ];
+        foreach ($industryTypes as $industryType) {
+            Industry::create(['industry_type' => $industryType]);
         }
-
+        $this->command->info(" Industry has created successfully");
     }
 }

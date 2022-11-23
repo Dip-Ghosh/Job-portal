@@ -16,5 +16,4 @@ class IndustryRepository extends BaseRepository implements IndustryInterface, Wr
         parent::__construct($industry);
         $this->industry = $industry;
     }
-
 }
