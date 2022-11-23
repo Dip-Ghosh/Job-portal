@@ -20,36 +20,36 @@ class LocationController extends Controller
 
     public function index()
     {
-        $industries = $this->location->getAll();
-        return view('location.list', compact('industries'));
+        $locations = $this->location->getAll();
+        return view('location.list', compact('locations'));
     }
 
     public function create()
     {
-        return view('locations.create');
+        return view('location.create');
     }
 
     public function store(LocationFormRequest $request)
     {
         $this->locationService->requestParams($request->except('_token'));
-        return redirect()->route('industries.index')->with('success', 'Location Created Successfully');
+        return redirect()->route('locations.index')->with('success', 'Location Created Successfully');
     }
 
     public function edit($id)
     {
-        $$location = $this->location->getOne($id);
-        return view('location.edit', compact('industry'));
+        $location = $this->location->getOne($id);
+        return view('location.edit', compact('location'));
     }
 
     public function update(LocationFormRequest $request, $id)
     {
         $this->locationService->requestUpdateParams($request->except('_token'), $id);
-        return redirect()->route('industries.index')->with('success', 'Industry Updated Successfully');
+        return redirect()->route('locations.index')->with('success', 'Locations Updated Successfully');
     }
 
     public function destroy($id)
     {
         $this->location->delete($id);
-        return redirect()->back()->with('success', 'Industry Deleted Successfully');
+        return redirect()->back()->with('success', 'Location Deleted Successfully');
     }
 }
