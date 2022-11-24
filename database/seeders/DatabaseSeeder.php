@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         $this->call([IndustrySeeder::class]);
         $this->call([LocationSeeder::class]);
         $this->call([JobTitleSeeder::class]);
+        $this->call([CompanySeeder::class]);
     }
 }
