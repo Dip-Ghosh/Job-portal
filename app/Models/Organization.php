@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Organization extends Model
 {
@@ -19,5 +20,10 @@ class Organization extends Model
     public function scopeOrders($query)
     {
         return $query->orderBy('id', 'desc');
+    }
+
+    public function company(): hasOne
+    {
+        return $this->hasOne(Company::class, ['id' => 'organizations_id']);
     }
 }
