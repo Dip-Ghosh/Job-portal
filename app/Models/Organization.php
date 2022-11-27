@@ -26,4 +26,9 @@ class Organization extends Model
     {
         return $this->hasOne(Company::class, 'organizations_id');
     }
+
+    public function industry()
+    {
+        return $this->hasMany(Industry::class, ['id' => 'organizations_id']);
+    }
 }

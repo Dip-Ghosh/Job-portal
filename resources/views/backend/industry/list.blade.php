@@ -22,15 +22,18 @@
                     <thead>
                     <tr>
                         <th>SL</th>
-                        <th>Type</th>
+                        <th>Organization</th>
+                        <th>Industry</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
                     @php $i = 0; @endphp
                     @foreach ($industries as $industry)
+                        {{$industry}}
                         <tr>
                             <td>{{ ++$i }}</td>
+                            <td>{{ $industry->organization->organization_type }}</td>
                             <td>{{ $industry->industry_type }}</td>
                             <td>
                                 <form action="{{ route('industries.destroy',$industry->id) }}" method="POST">

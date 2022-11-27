@@ -13,4 +13,9 @@ class IndustryRepository extends BaseRepository implements IndustryInterface
     {
         parent::__construct($industry);
     }
+
+    public function getActiveIndustries()
+    {
+        return $this->model->with('organization')->active()->orders()->get();
+    }
 }

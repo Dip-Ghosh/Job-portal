@@ -5,28 +5,32 @@ namespace App\Http\Controllers\Backend\Settings;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\IndustryFormRequest;
 use App\Repository\Backend\IndustryInterface;
+use App\Repository\Backend\OrganizationInterface;
 use App\Service\IndustryService;
 
 class IndustryController extends Controller
 {
     protected $industryRepository;
     protected $industryService;
+    protected $organization;
 
-    public function __construct(IndustryInterface $industryRepository, IndustryService $industryService)
+    public function __construct(IndustryInterface $industryRepository, IndustryService $industryService, OrganizationInterface $organization)
     {
         $this->industryRepository = $industryRepository;
         $this->industryService = $industryService;
+        $this->organization = $organization;
     }
 
     public function index()
     {
-        $industries = $this->industryRepository->getAll();
+        $industries = $this->industryRepository->getActiveIndustries();
         return view('backend.industry.list', compact('industries'));
     }
 
     public function create()
     {
-        return view('backend.industry.create');
+        $organizations = $this->organization->getAll();
+        return view('backend.industry.create', compact('organizations'));
     }
 
     public function store(IndustryFormRequest $request)

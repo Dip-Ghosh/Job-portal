@@ -21,6 +21,8 @@
     <link href="{{asset('vendor/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
 </head>
 
 <body id="page-top">
@@ -34,21 +36,21 @@
         <div id="content">
 
 
-        @include('adminPanel.navbar')
+            @include('adminPanel.navbar')
 
 
 
 
-        @yield('content')
+            @yield('content')
 
-        <!-- /.container-fluid -->
+            <!-- /.container-fluid -->
 
         </div>
 
 
         <!-- Footer -->
-    @include('adminPanel.footer')
-    <!-- End of Footer -->
+        @include('adminPanel.footer')
+        <!-- End of Footer -->
 
     </div>
 
@@ -60,7 +62,8 @@
 </a>
 
 
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -72,9 +75,9 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="{{route('logout')}}"   onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                <a class="btn btn-primary" href="{{route('logout')}}"
+                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
             </div>
-
 
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -108,7 +111,11 @@
 
 <!-- Page level custom scripts -->
 <script src="{{asset('vendor/js/demo/datatables-demo.js')}}"></script>
-
+<!-- select2 script -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

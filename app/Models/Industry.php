@@ -10,7 +10,7 @@ class Industry extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['industry_type', 'status'];
+    protected $fillable = ['organizations_id', 'industry_type', 'status'];
 
     public function scopeActive($query)
     {
@@ -20,6 +20,11 @@ class Industry extends Model
     public function scopeOrders($query)
     {
         return $query->orderBy('id', 'desc');
+    }
+
+    public function organization()
+    {
+        return $this->belongsTo(Organization::class, 'organizations_id', 'id');
     }
 
     public function company(): hasOne
