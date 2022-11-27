@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CompanyFormRequest;
 use App\Repository\Backend\CompanyInterface;
 use App\Service\CompanyService;
 
@@ -28,7 +29,7 @@ class CompanyController extends Controller
         return view('industry.create');
     }
 
-    public function store(IndustryFormRequest $request)
+    public function store(CompanyFormRequest $request)
     {
         $this->industryService->requestParams($request->except('_token'));
         return redirect()->route('industries.index')->with('success', 'Industry Created Successfully');
@@ -40,7 +41,7 @@ class CompanyController extends Controller
         return view('industry.edit', compact('industry'));
     }
 
-    public function update(IndustryFormRequest $request, $id)
+    public function update(CompanyFormRequest $request, $id)
     {
         $this->industryService->requestUpdateParams($request->except('_token'), $id);
         return redirect()->route('industries.index')->with('success', 'Industry Updated Successfully');
