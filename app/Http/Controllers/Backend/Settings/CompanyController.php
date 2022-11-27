@@ -21,30 +21,30 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = $this->company->getAll();
-        return view('industry.list', compact('companies'));
+        return view('company.list', compact('companies'));
     }
 
     public function create()
     {
-        return view('industry.create');
+        return view('company.create');
     }
 
     public function store(CompanyFormRequest $request)
     {
         $this->companyService->requestParams($request->except('_token'));
-        return redirect()->route('industries.index')->with('success', 'Company Created Successfully');
+        return redirect()->route('companies.index')->with('success', 'Company Created Successfully');
     }
 
     public function edit($id)
     {
-        $industry = $this->company->getOne($id);
-        return view('industry.edit', compact('industry'));
+        $company = $this->company->getOne($id);
+        return view('industry.edit', compact('company'));
     }
 
     public function update(CompanyFormRequest $request, $id)
     {
         $this->companyService->requestUpdateParams($request->except('_token'), $id);
-        return redirect()->route('industries.index')->with('success', 'Company Updated Successfully');
+        return redirect()->route('companies.index')->with('success', 'Company Updated Successfully');
     }
 
     public function destroy($id)
