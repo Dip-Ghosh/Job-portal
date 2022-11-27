@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\Auth\LoginController;
 use App\Http\Controllers\Backend\Job\JobController;
+use App\Http\Controllers\Backend\Settings\CompanyController;
 use App\Http\Controllers\Backend\Settings\IndustryController;
 use App\Http\Controllers\Backend\Settings\JobTitleController;
 use App\Http\Controllers\Backend\Settings\LocationController;
@@ -18,6 +19,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('industries', IndustryController::class);
     Route::resource('locations', LocationController::class);
     Route::resource('jobs-title', JobTitleController::class);
+    Route::resource('companies', CompanyController::class);
 
     Route::resource('jobs', JobController::class);
 

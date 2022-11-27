@@ -31,8 +31,8 @@ class CompanyController extends Controller
 
     public function store(CompanyFormRequest $request)
     {
-        $this->industryService->requestParams($request->except('_token'));
-        return redirect()->route('industries.index')->with('success', 'Industry Created Successfully');
+        $this->companyService->requestParams($request->except('_token'));
+        return redirect()->route('industries.index')->with('success', 'Company Created Successfully');
     }
 
     public function edit($id)
@@ -43,13 +43,13 @@ class CompanyController extends Controller
 
     public function update(CompanyFormRequest $request, $id)
     {
-        $this->industryService->requestUpdateParams($request->except('_token'), $id);
-        return redirect()->route('industries.index')->with('success', 'Industry Updated Successfully');
+        $this->companyService->requestUpdateParams($request->except('_token'), $id);
+        return redirect()->route('industries.index')->with('success', 'Company Updated Successfully');
     }
 
     public function destroy($id)
     {
         $this->company->delete($id);
-        return redirect()->back()->with('success', 'Industry Deleted Successfully');
+        return redirect()->back()->with('success', 'Company Deleted Successfully');
     }
 }
