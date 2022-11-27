@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Repository\Industry\IndustryInterface;
+use App\Repository\Backend\IndustryInterface;
 
 class IndustryService
 {

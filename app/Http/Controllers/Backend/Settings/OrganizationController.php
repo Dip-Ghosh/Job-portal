@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrganizationFormRequest;
-use App\Repository\Organization\OrganizationInterface;
+use App\Repository\Backend\OrganizationInterface;
 use App\Service\OrganizationService;
 
 class OrganizationController extends Controller

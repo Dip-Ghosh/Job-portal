@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Repository\Location\LocationInterface;
+use App\Repository\Backend\LocationInterface;
 
 class LocationService
 {

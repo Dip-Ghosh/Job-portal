@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Repository\Organization\OrganizationInterface;
+use App\Repository\Backend\OrganizationInterface;
 
 class OrganizationService
 {

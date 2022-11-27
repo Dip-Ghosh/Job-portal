@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\Organization;
+namespace App\Repository\Backend;
 
 interface OrganizationInterface
 {

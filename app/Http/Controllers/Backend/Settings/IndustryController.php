@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\IndustryFormRequest;
-use App\Repository\Industry\IndustryInterface;
+use App\Repository\Backend\IndustryInterface;
 use App\Service\IndustryService;
 
 class IndustryController extends Controller

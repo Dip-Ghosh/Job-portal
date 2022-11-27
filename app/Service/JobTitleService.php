@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Repository\JobTitle\JobTitleInterface;
+use App\Repository\Backend\JobTitleInterface;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LocationFormRequest;
-use App\Repository\Location\LocationInterface;
+use App\Repository\Backend\LocationInterface;
 use App\Service\LocationService;
 
 class LocationController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\JobTitle;
+namespace App\Repository\Backend;
 
 interface JobTitleInterface
 {

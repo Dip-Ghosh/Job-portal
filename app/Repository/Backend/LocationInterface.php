@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\Location;
+namespace App\Repository\Backend;
 
 interface LocationInterface
 {

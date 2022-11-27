@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\JobTitleFormRequest;
-use App\Repository\JobTitle\JobTitleInterface;
+use App\Repository\Backend\JobTitleInterface;
 use App\Service\JobTitleService;
 
 class JobTitleController extends Controller

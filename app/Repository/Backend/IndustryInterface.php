@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository\Industry;
+namespace App\Repository\Backend;
 
 interface IndustryInterface
 {
