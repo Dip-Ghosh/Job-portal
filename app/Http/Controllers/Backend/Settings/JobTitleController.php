@@ -21,12 +21,12 @@ class JobTitleController extends Controller
     public function index()
     {
         $jobsTitle = $this->jobTitleService->makePaginate(collect($this->jobTitle->getAll()));
-        return view('job-title.list', compact('jobsTitle'));
+        return view('backend.job-title.list', compact('jobsTitle'));
     }
 
     public function create()
     {
-        return view('job-title.create');
+        return view('backend.job-title.create');
     }
 
     public function store(JobTitleFormRequest $request)
@@ -38,7 +38,7 @@ class JobTitleController extends Controller
     public function edit($id)
     {
         $jobTitle = $this->jobTitle->getOne($id);
-        return view('job-title.edit', compact('jobTitle'));
+        return view('backend.job-title.edit', compact('jobTitle'));
     }
 
     public function update(JobTitleFormRequest $request, $id)

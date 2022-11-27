@@ -21,12 +21,12 @@ class IndustryController extends Controller
     public function index()
     {
         $industries = $this->industryRepository->getAll();
-        return view('industry.list', compact('industries'));
+        return view('backend.industry.list', compact('industries'));
     }
 
     public function create()
     {
-        return view('industry.create');
+        return view('backend.industry.create');
     }
 
     public function store(IndustryFormRequest $request)
@@ -38,7 +38,7 @@ class IndustryController extends Controller
     public function edit($id)
     {
         $industry = $this->industryRepository->getOne($id);
-        return view('industry.edit', compact('industry'));
+        return view('backend.industry.edit', compact('industry'));
     }
 
     public function update(IndustryFormRequest $request, $id)

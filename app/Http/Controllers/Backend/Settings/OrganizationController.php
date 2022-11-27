@@ -21,12 +21,12 @@ class OrganizationController extends Controller
     public function index()
     {
         $organizations = $this->organizationRepository->getAll();
-        return view('organization.list', compact('organizations'));
+        return view('backend.organization.list', compact('organizations'));
     }
 
     public function create()
     {
-        return view('organization.create');
+        return view('backend.organization.create');
     }
 
     public function store(OrganizationFormRequest $request)
@@ -38,7 +38,7 @@ class OrganizationController extends Controller
     public function edit($id)
     {
         $organization = $this->organizationRepository->getOne($id);
-        return view('organization.edit', compact('organization'));
+        return view('backend.organization.edit', compact('organization'));
     }
 
     public function update(OrganizationFormRequest $request, $id)

@@ -21,12 +21,12 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = $this->company->getAll();
-        return view('company.list', compact('companies'));
+        return view('backend.company.list', compact('companies'));
     }
 
     public function create()
     {
-        return view('company.create');
+        return view('backend.company.create');
     }
 
     public function store(CompanyFormRequest $request)
@@ -38,7 +38,7 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $company = $this->company->getOne($id);
-        return view('industry.edit', compact('company'));
+        return view('backend.company.edit', compact('company'));
     }
 
     public function update(CompanyFormRequest $request, $id)

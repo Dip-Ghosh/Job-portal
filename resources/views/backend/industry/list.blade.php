@@ -56,5 +56,5 @@
             </div>
 
         </div>
-    @include('.js.datatable')
+    @include('js.datatable')
 @endsection
