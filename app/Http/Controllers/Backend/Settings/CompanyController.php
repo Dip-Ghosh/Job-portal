@@ -20,7 +20,7 @@ class CompanyController extends Controller
 
     public function index()
     {
-        $companies = $this->company->getAll();
+        $companies = $this->company->getActiveCompanies();
         return view('backend.company.list', compact('companies'));
     }
 

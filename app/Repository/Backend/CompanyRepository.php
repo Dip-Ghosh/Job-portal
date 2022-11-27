@@ -16,7 +16,7 @@ class CompanyRepository extends BaseRepository implements CompanyInterface
 
     public function getActiveCompanies()
     {
-        $this->model->with('organization', 'industry')->get();
+        return $this->model->with('organization', 'industry')->active()->orders()->get();
     }
 }
 

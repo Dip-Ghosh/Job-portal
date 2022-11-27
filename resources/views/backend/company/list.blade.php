@@ -34,22 +34,21 @@
                     <tbody>
                     @php $i = 0; @endphp
                     @foreach ($companies as $company)
-                        {{ dd($company) }}
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $company->name }}</td>
-                            <td>{{ $company->organization->organization_type }}</td>
-                            <td>{{ $company->organization->industry_type }}</td>
+                            <td>{{ $company->organization_type }}</td>
+                            <td>{{ $company->industry_type }}</td>
                             <td>{{ $company->address }}</td>
                             <td>{{ $company->email }}</td>
                             <td>{{ $company->mobile }}</td>
-                            <td>{{ $company->web_address }}</td>
+                            <td>{{ $company->web_url }}</td>
                             <td>
-                                <form action="{{ route('industries.destroy',$industry->id) }}" method="POST">
+                                <form action="{{ route('companies.destroy', $company->id) }}" method="POST">
                                     @CSRF
                                     @method('DELETE')
 
-                                    <a href="{{ route('industries.edit',$industry->id) }}"
+                                    <a href="{{ route('companies.edit', $company->id) }}"
                                        class="btn btn-sm btn-success"><i
                                             class="fas fa-edit"></i></a>
 
@@ -68,5 +67,5 @@
             </div>
 
         </div>
-    @include('js.datatable')
+    @include('.js.datatable')
 @endsection
