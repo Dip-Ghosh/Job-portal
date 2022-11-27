@@ -13,5 +13,10 @@ class CompanyRepository extends BaseRepository implements CompanyInterface
     {
         parent::__construct($company);
     }
+
+    public function getActiveCompanies()
+    {
+        $this->model->with('organization', 'industry')->get();
+    }
 }
 

@@ -34,6 +34,7 @@
                     <tbody>
                     @php $i = 0; @endphp
                     @foreach ($companies as $company)
+                        {{ dd($company) }}
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $company->name }}</td>

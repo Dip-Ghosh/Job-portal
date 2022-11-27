@@ -15,12 +15,12 @@ class BaseRepository implements WriteAbleInterface, ReadAbleInterface
 
     public function getAll()
     {
-        return $this->model::active()->orders()->get();
+        return $this->model->active()->orders()->get();
     }
 
     public function save(array $data)
     {
-        return $this->model::create($data);
+        return $this->model->create($data);
     }
 
     public function getOne($id)
