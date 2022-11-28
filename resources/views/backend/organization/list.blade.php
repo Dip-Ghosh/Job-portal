@@ -38,12 +38,12 @@
                                     @method('DELETE')
 
                                     <a href="{{ route('organizations.edit',$organization->id) }}"
-                                       class="btn btn-sm btn-success"><i
-                                            class="fas fa-edit"></i></a>
+                                       class="btn btn-sm btn-success"><em
+                                            class="fas fa-edit"></em></a>
 
                                     <button type="submit" class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Are you sure to delete?')"><i
-                                            class="fas fa-trash"></i>
+                                            onclick="return confirm('Are you sure to delete?')"><em
+                                            class="fas fa-trash"></em>
                                     </button>
                                 </form>
 
