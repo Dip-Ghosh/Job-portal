@@ -40,8 +40,9 @@
                                             <option value="">Choose Any One</option>
                                             @foreach($organizations as $organization)
                                                 <option @if($organization->id == $industry->organizations_id) selected
-                                                        @endif
-                                                        value="{{ $organization->id }}"> {{ $organization->organization_type }}</option>
+                                                        @endif value="{{ $organization->id }}">
+                                                    {{ $organization->organization_type }}
+                                                </option>
                                             @endforeach
                                         </select>
                                     </div>
