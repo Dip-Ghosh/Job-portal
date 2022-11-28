@@ -14,7 +14,8 @@ class IndustryController extends Controller
     protected $industryService;
     protected $organization;
 
-    public function __construct(IndustryInterface $industryRepository, IndustryService $industryService, OrganizationInterface $organization)
+    public function __construct(IndustryInterface     $industryRepository, IndustryService $industryService,
+                                OrganizationInterface $organization)
     {
         $this->industryRepository = $industryRepository;
         $this->industryService = $industryService;

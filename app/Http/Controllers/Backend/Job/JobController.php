@@ -23,7 +23,8 @@ class JobController extends Controller
     protected $jobService;
     protected $jobApplication;
 
-    public function __construct(OrganizationInterface $jobType, JobInterface $job, OrganizationService $jobService, JobApplicationInterface $jobApplication)
+    public function __construct(OrganizationInterface   $jobType, JobInterface $job, OrganizationService $jobService,
+                                JobApplicationInterface $jobApplication)
     {
         $this->jobType = $jobType;
         $this->job = $job;
