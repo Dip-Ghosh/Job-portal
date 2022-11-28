@@ -17,6 +17,7 @@ class IndustryService
     {
         $params = [
             'industry_type' => $requestParams['name'],
+            'organizations_id' => $requestParams['organizationType'],
             'status' => 1
         ];
         return $this->industry->save($params);

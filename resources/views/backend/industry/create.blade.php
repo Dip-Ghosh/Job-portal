@@ -40,8 +40,8 @@
                                 <div class="col-md-4">
 
                                     <div class="form-group">
-                                        <label for="name">Industry Type</label>
-                                        <select name="job_types_id" id="" class="form-control" required>
+                                        <label for="name">Organization Type</label>
+                                        <select name="organizationId" id="" class="form-control" required>
                                             <option value="">Choose Any One</option>
                                             @foreach($organizations as $organization)
                                                 <option

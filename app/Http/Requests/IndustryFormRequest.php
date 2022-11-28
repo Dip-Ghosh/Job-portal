@@ -15,14 +15,16 @@ class IndustryFormRequest extends FormRequest
     {
 
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'organizationId' => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'Industry Type is required'
+            'name.required' => 'Industry Type is required',
+            'organizationId.required' => 'Select organization type'
         ];
     }
 }
