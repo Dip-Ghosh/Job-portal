@@ -38,21 +38,26 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label for="name">Industry Type</label>
-                                    <select class="form-select js-example-basic-single" name="organizationType">
-                                        @foreach($organizations as $organization)
-                                            <option
-                                                value="{{ $organization->id }}"> {{ $organization->organization_type }}</option>
-                                        @endforeach
-                                    </select>
+
+                                    <div class="form-group">
+                                        <label for="name">Industry Type</label>
+                                        <select name="job_types_id" id="" class="form-control" required>
+                                            <option value="">Choose Any One</option>
+                                            @foreach($organizations as $organization)
+                                                <option
+                                                    value="{{ $organization->id }}"> {{ $organization->organization_type }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
+
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="name">Industry Type</label>
                                         <input type="text" name="name" class="form-control" required>
                                     </div>
                                 </div>
-                                <div class="col-md-4 offset-1" style="margin-top: 31px;">
+                                <div class="col-md-4" style="margin-top: 31px;">
                                     <button type="submit" class="form-group form-control btn btn-info">
                                         Submit
                                     </button>

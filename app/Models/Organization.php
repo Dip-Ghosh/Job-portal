@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Organization extends Model
@@ -22,13 +23,15 @@ class Organization extends Model
         return $query->orderBy('id', 'desc');
     }
 
+    public function industry(): hasMany
+    {
+        return $this->hasMany(Industry::class, ['id' => 'organizations_id']);
+    }
+
     public function company(): hasOne
     {
         return $this->hasOne(Company::class, 'organizations_id');
     }
 
-    public function industry()
-    {
-        return $this->hasMany(Industry::class, ['id' => 'organizations_id']);
-    }
+
 }

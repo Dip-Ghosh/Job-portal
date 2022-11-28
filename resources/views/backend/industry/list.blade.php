@@ -30,7 +30,6 @@
                     <tbody>
                     @php $i = 0; @endphp
                     @foreach ($industries as $industry)
-                        {{$industry}}
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $industry->organization->organization_type }}</td>
@@ -59,5 +58,4 @@
             </div>
 
         </div>
-    @include('js.datatable')
 @endsection
