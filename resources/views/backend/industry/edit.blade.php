@@ -33,7 +33,20 @@
                         @method('PUT')
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="name">Organization Type</label>
+                                        <select name="organizationId" id="" class="form-control" required>
+                                            <option value="">Choose Any One</option>
+                                            @foreach($organizations as $organization)
+                                                <option @if($organization->id == $industry->organizations_id) selected
+                                                        @endif
+                                                        value="{{ $organization->id }}"> {{ $organization->organization_type }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" value="{{ $industry->industry_type }}"

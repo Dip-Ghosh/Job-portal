@@ -38,7 +38,6 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-
                                     <div class="form-group">
                                         <label for="name">Organization Type</label>
                                         <select name="organizationId" id="" class="form-control" required>

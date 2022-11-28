@@ -41,8 +41,9 @@ class IndustryController extends Controller
 
     public function edit($id)
     {
+        $organizations = $this->organization->getAll();
         $industry = $this->industryRepository->getOne($id);
-        return view('backend.industry.edit', compact('industry'));
+        return view('backend.industry.edit', compact('industry', 'organizations'));
     }
 
     public function update(IndustryFormRequest $request, $id)
