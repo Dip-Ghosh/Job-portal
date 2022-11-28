@@ -18,7 +18,7 @@ class CompanySeeder extends Seeder
         $organizations = Organization::pluck('id');
         $industries = Industry::pluck('id');
 
-        for ($i = 0; $i <= 1; $i++) {
+        for ($i = 0; $i <= 100; $i++) {
             Company::create([
                 "name" => $faker->name(),
                 "organizations_id" => $faker->randomElement($organizations),

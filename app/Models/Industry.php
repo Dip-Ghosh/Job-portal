@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Industry extends Model
 {
@@ -28,8 +28,8 @@ class Industry extends Model
         return $this->belongsTo(Organization::class, 'organizations_id', 'id');
     }
 
-    public function company(): hasOne
+    public function company(): HasMany
     {
-        return $this->hasOne(Company::class, 'industries_id');
+        return $this->HasMany(Company::class, ['id' => 'industries_id']);
     }
 }

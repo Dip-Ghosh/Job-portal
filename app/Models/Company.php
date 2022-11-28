@@ -27,12 +27,12 @@ class Company extends Model
 
     public function organization(): belongsTo
     {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organization::class, 'organizations_id', 'id');
     }
 
     public function industry(): belongsTo
     {
-        return $this->belongsTo(Industry::class);
+        return $this->belongsTo(Industry::class, 'industries_id', 'id');
     }
 
 

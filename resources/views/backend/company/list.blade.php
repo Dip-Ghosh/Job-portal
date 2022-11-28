@@ -18,14 +18,13 @@
     <section class="content">
         <div class="card">
             <div class="card-body">
-                <table id="example" class="table table-striped table-bordered" style="width: 100%">
+                <table id="example" class="table table-striped table-bordered dataTable no-footer">
                     <thead>
                     <tr>
                         <th>SL</th>
                         <th>Name</th>
                         <th>Organization</th>
                         <th>Industry</th>
-                        <th>Address</th>
                         <th>Email</th>
                         <th>Mobile</th>
                         <th>Web Address</th>
@@ -37,9 +36,8 @@
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $company->name }}</td>
-                            <td>{{ $company->organization_type }}</td>
-                            <td>{{ $company->industry_type }}</td>
-                            <td>{{ $company->address }}</td>
+                            <td>{{ $company->organization->organization_type }}</td>
+                            <td>{{ $company->industry->industry_type }}</td>
                             <td>{{ $company->email }}</td>
                             <td>{{ $company->mobile }}</td>
                             <td>{{ $company->web_url }}</td>
@@ -63,9 +61,7 @@
                     @endforeach
                     </tbody>
                 </table>
-
             </div>
-
         </div>
-    @include('.js.datatable')
+    </section>
 @endsection

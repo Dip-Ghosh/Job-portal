@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Organization extends Model
 {
@@ -28,9 +27,9 @@ class Organization extends Model
         return $this->hasMany(Industry::class, ['id' => 'organizations_id']);
     }
 
-    public function company(): hasOne
+    public function company(): HasMany
     {
-        return $this->hasOne(Company::class, 'organizations_id');
+        return $this->HasMany(Company::class, ['id' => 'organizations_id']);
     }
 
 

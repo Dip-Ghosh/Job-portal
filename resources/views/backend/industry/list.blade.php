@@ -18,7 +18,7 @@
     <section class="content">
         <div class="card">
             <div class="card-body">
-                <table id="example" class="table table-striped table-bordered" style="width: 100%">
+                <table id="example" class="table table-striped table-bordered dataTable no-footer" style="width: 100%">
                     <thead>
                     <tr>
                         <th>SL</th>
@@ -54,8 +54,7 @@
                     @endforeach
                     </tbody>
                 </table>
-
             </div>
-
         </div>
+    </section>
 @endsection
