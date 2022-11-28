@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <em class="fas fa-laugh-wink"></em>
         </div>
         <div class="sidebar-brand-text mx-3">Bangladesh Job| Portal</div>
     </a>
@@ -22,7 +22,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <em class="fas fa-fw fa-cog"></em>
             <span>Jobs</span>
         </a>
         <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -38,7 +38,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <em class="fas fa-fw fa-cog"></em>
             <span>Organizations</span>
         </a>
         <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -55,7 +55,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <em class="fas fa-fw fa-cog"></em>
             <span>Industry</span>
         </a>
         <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -72,7 +72,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <em class="fas fa-fw fa-cog"></em>
             <span>Locations</span>
         </a>
         <div id="collapse4" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -90,7 +90,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <em class="fas fa-fw fa-cog"></em>
             <span>Job Title</span>
         </a>
         <div id="collapse5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -107,7 +107,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6"
            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+            <em class="fas fa-fw fa-cog"></em>
             <span>Company</span>
         </a>
         <div id="collapse6" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
