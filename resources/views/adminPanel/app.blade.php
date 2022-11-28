@@ -20,9 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('vendor/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-
+    
 </head>
 
 <body id="page-top">
@@ -111,11 +109,6 @@
 
 <!-- Page level custom scripts -->
 <script src="{{asset('vendor/js/demo/datatables-demo.js')}}"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
     $(document).ready(function () {
