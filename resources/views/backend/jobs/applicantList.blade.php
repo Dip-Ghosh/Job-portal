@@ -14,9 +14,11 @@
         <div class="card">
             <div class="card-body">
                 @if($message = Session::get('success'))
-                    <div class="alert alert-info alert-dismissible">{{ $message }}  <button type="button" class="close" data-dismiss="alert">×</button></div>
+                    <div class="alert alert-info alert-dismissible">{{ $message }}
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                    </div>
                 @endif
-                <table id="example" class="table table-bordered table-striped">
+                <table id="application-list" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th>SL</th>
@@ -38,7 +40,8 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->mobile}}</td>
-                            <td><a href="{{route('applicant-details',$user->id)}}" class="btn btn-sm btn-success"><i class="fas fa-eye"></i></a></td>
+                            <td><a href="{{route('applicant-details',$user->id)}}" class="btn btn-sm btn-success"><i
+                                        class="fas fa-eye"></i></a></td>
 
                         </tr>
                     @endforeach
@@ -58,10 +61,9 @@
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        } );
-
+        $(document).ready(function () {
+            $('#application-list').DataTable();
+        });
     </script>
 
 @endsection

@@ -18,7 +18,7 @@
     <section class="content">
         <div class="card">
             <div class="card-body">
-                <table id="example" class="table table-striped table-bordered dataTable no-footer">
+                <table id="company-list" class="table table-striped table-bordered dataTable no-footer">
                     <thead>
                     <tr>
                         <th>SL</th>
@@ -64,4 +64,9 @@
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function () {
+            $('#company-list').DataTable();
+        });
+    </script>
 @endsection

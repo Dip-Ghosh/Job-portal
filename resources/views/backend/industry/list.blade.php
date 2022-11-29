@@ -18,7 +18,8 @@
     <section class="content">
         <div class="card">
             <div class="card-body">
-                <table id="example" class="table table-striped table-bordered dataTable no-footer" style="width: 100%">
+                <table id="industry-list" class="table table-striped table-bordered dataTable no-footer"
+                       style="width: 100%">
                     <thead>
                     <tr>
                         <th>SL</th>
@@ -57,4 +58,9 @@
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function () {
+            $('#industry-list').DataTable();
+        });
+    </script>
 @endsection

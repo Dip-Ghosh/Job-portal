@@ -20,7 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('vendor/css/sb-admin-2.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
-    
+
 </head>
 
 <body id="page-top">
@@ -110,12 +110,6 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('vendor/js/demo/datatables-demo.js')}}"></script>
 
-<script>
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-
-</script>
 
 </body>
 
