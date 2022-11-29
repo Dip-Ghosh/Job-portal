@@ -19,6 +19,7 @@
         <div class="card">
             <div class="card-body">
                 <table id="company-list" class="table table-striped table-bordered dataTable no-footer">
+                    <caption> Company List</caption>
                     <thead>
                     <tr>
                         <th>SL</th>
