@@ -14,14 +14,11 @@ Route::post('dashboard', [LoginController::class, 'login'])->name('login');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
     Route::resource('organizations', OrganizationController::class);
     Route::resource('industries', IndustryController::class);
     Route::resource('locations', LocationController::class);
     Route::resource('jobs-title', JobTitleController::class);
     Route::resource('companies', CompanyController::class);
-
     Route::resource('jobs', JobController::class);
-
     Route::get('applicant-details/{id}', [JobController::class, 'getApplicantDetails'])->name('applicant-details');
 });
