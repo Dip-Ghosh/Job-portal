@@ -23,7 +23,9 @@
                     <tr>
                         <th>SL</th>
                         <th>Type</th>
-                        <th></th>
+                        @canany(['update', 'delete'], \App\Models\Organization::class)
+                            <th></th>
+                        @endcan
                     </tr>
                     </thead>
                     <tbody>
@@ -32,22 +34,23 @@
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $organization->organization_type }}</td>
-                            <td>
-                                <form action="{{ route('organizations.destroy',$organization->id) }}" method="POST">
-                                    @CSRF
-                                    @method('DELETE')
+                            @canany(['update', 'delete'], \App\Models\Organization::class)
+                                <td>
+                                    <form action="{{ route('organizations.destroy',$organization->id) }}" method="POST">
+                                        @CSRF
+                                        @method('DELETE')
 
-                                    <a href="{{ route('organizations.edit',$organization->id) }}"
-                                       class="btn btn-sm btn-success"><em
-                                            class="fas fa-edit"></em></a>
+                                        <a href="{{ route('organizations.edit',$organization->id) }}"
+                                           class="btn btn-sm btn-success"><em
+                                                class="fas fa-edit"></em></a>
 
-                                    <button type="submit" class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Are you sure to delete?')"><em
-                                            class="fas fa-trash"></em>
-                                    </button>
-                                </form>
-
-                            </td>
+                                        <button type="submit" class="btn btn-sm btn-danger"
+                                                onclick="return confirm('Are you sure to delete?')"><em
+                                                class="fas fa-trash"></em>
+                                        </button>
+                                    </form>
+                                </td>
+                            @endcan
                         </tr>
                     @endforeach
                     </tbody>

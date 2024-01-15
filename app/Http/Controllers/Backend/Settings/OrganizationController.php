@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend\Settings;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrganizationFormRequest;
+use App\Models\Organization;
 use App\Repository\Backend\OrganizationInterface;
 use App\Service\OrganizationService;
 
@@ -15,7 +16,9 @@ class OrganizationController extends Controller
     public function __construct(OrganizationInterface $organizationRepository, OrganizationService $organizationService)
     {
         $this->organizationRepository = $organizationRepository;
-        $this->organizationService = $organizationService;
+        $this->organizationService    = $organizationService;
+        $this->authorizeResource(Organization::class);
+
     }
 
     public function index()
