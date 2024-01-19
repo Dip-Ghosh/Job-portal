@@ -23,7 +23,7 @@
                     <tr>
                         <th>SL</th>
                         <th>Type</th>
-                        @canany(['update', 'delete'], \App\Models\Organization::class)
+                        @can(['update', 'delete'], Organization::class)
                             <th></th>
                         @endcan
                     </tr>
@@ -34,7 +34,7 @@
                         <tr>
                             <td>{{ ++$i }}</td>
                             <td>{{ $organization->organization_type }}</td>
-                            @canany(['update', 'delete'], \App\Models\Organization::class)
+                            @can(['update', 'delete'], $organization)
                                 <td>
                                     <form action="{{ route('organizations.destroy',$organization->id) }}" method="POST">
                                         @CSRF
