@@ -1,0 +1,15 @@
+services:
+  app:
+    build: ./php
+    container_name: microservice
+    env_file: ../.env
+    ports:
+      - "9001:9000"
+    volumes:
+      - ../:/var/www
+    depends_on:
+      - mysql_master
+      - mysql_slave
+      - redis
+      - elasticsearch
+    networks: [appnet]
