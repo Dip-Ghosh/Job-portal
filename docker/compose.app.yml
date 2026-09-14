@@ -12,4 +12,5 @@ services:
       - mysql_slave
       - redis
       - elasticsearch
+      - postgres_messages
     networks: [appnet]

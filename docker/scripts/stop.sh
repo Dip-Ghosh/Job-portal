@@ -13,6 +13,7 @@ COMPOSE_FILES="
     -f compose.elasticsearch.yml
     -f compose.kibana.yml
     -f compose.worker.yml
+    -f compose.postgresql.yml
 "
 
 echo "🛑 Stopping all services..."

@@ -8,5 +8,6 @@ volumes:
   mysql_slave_data:
   redis_data:
   es_data:
+  postgres_messages_data:
 
 
