@@ -6,11 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateChatsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    protected $connection = 'pgsql';
+
     public function up()
     {
       Schema::create('chats', function (Blueprint $table) {

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MessageReceipt extends Model
 {
     use HasFactory;
+    protected $connection = 'pgsql';
+    protected $table = 'message_receipts';
 }

@@ -4,11 +4,11 @@ FROM php:8.2-fpm-alpine
 # System deps
 RUN apk add --no-cache \
     git curl zip unzip icu-dev oniguruma-dev libpng-dev libjpeg-turbo-dev libzip-dev \
-    bash shadow
+    bash shadow postgresql-dev
 
 # PHP extensions
 RUN docker-php-ext-configure gd --with-jpeg \
- && docker-php-ext-install -j$(nproc) pdo_mysql bcmath intl gd zip exif pcntl
+ && docker-php-ext-install -j$(nproc) pdo_mysql pdo_pgsql bcmath intl gd zip exif pcntl
 
 #RUN apt-get update && apt-get install -y \
 #    libzip-dev \
